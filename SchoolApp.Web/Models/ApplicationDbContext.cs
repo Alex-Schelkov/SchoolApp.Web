@@ -9,11 +9,23 @@ namespace SchoolApp.Web.Models
 {
     public class ApplicationDbContext : DbContext
     {
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
            : base(options)
         {
+            Database.EnsureCreated();
         }
-        //public DbSet<Book> Books { get; set; }
+
+  
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+        }
+
+        public DbSet<State> States { get; set; }
+        public DbSet<TaskJornal> TaskJornals { get; set; }
     }
 
 
@@ -24,14 +36,14 @@ namespace SchoolApp.Web.Models
         [Required]
         public string Name { get; set; }
 
-        public ICollection<Task> Tasks { get; set; }
+        public ICollection<TaskJornal> TaskJornals { get; set; }
         public State()
         {
-            Tasks = new List<Task>();
+            TaskJornals = new List<TaskJornal>();
         }
     }
 
-    public class Task
+    public class TaskJornal
     {
         [Key]
         public int Id { get; set; }
