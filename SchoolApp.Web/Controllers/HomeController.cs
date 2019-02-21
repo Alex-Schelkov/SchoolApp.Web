@@ -18,26 +18,29 @@ namespace SchoolApp.Web.Controllers
 
         public IActionResult Index()
         {
-         
-            var queryTask = db.TaskJornals.ToList<TaskJornal>().Count;
-            
-
-            return View();
+            var queryTask = db.TaskJornals.Where(x=>x.State.Id!=4);
+            return View(queryTask);
         }
 
-        public IActionResult About()
+        [HttpGet]
+        public IActionResult CreateTask()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            TaskJornal task = new TaskJornal();
+            return View(task);
         }
 
-        public IActionResult Contact()
+
+        [HttpPost]
+        public IActionResult CreateTask(TaskJornal task)
         {
-            ViewData["Message"] = "Your contact page.";
+            if (ModelState.IsValid)
+            {
+                db.TaskJornals.Add(task);
+            }
 
             return View();
         }
+
 
         public IActionResult Error()
         {
