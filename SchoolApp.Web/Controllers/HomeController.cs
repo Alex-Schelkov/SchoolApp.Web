@@ -10,8 +10,18 @@ namespace SchoolApp.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db;
+        public HomeController(ApplicationDbContext context)
+        {
+            db = context;
+        }
+
         public IActionResult Index()
         {
+         
+            var queryTask = db.TaskJornals.ToList<TaskJornal>().Count;
+            
+
             return View();
         }
 
