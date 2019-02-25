@@ -29,6 +29,18 @@ namespace SchoolApp.Web.Controllers
             return View(task);
         }
 
+        [HttpGet]
+        public IActionResult Access(int number)
+        {
+            ViewBag.Number = number;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Access()
+        {
+            return RedirectToAction("Access");
+        }
 
         [HttpPost]
         public IActionResult CreateTask(TaskJornal task)
@@ -36,9 +48,11 @@ namespace SchoolApp.Web.Controllers
             if (ModelState.IsValid)
             {
                 db.TaskJornals.Add(task);
+                db.SaveChanges();
+                return RedirectToAction("Access",new {number= task.Id});
             }
 
-            return View();
+            return View(task);
         }
 
 
