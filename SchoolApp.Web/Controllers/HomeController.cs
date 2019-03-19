@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using SchoolApp.Web.Base;
 using Microsoft.AspNetCore.Mvc;
 using SchoolApp.Web.Models;
 
@@ -10,46 +7,40 @@ namespace SchoolApp.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationDbContext db;
+        private TaskBoardSchool boardSchool;
+
         public HomeController(ApplicationDbContext context)
         {
-            db = context;
+          
+            boardSchool = new TaskBoardSchool(context);
         }
 
         public IActionResult Index()
         {
-            var queryTask = db.TaskJornals.Where(x=>x.State.Id!=4);
-            return View(queryTask);
+            return View(boardSchool.GetRealTask());
         }
 
         [HttpGet]
         public IActionResult CreateTask()
         {
-            TaskJornal task = new TaskJornal();
-            return View(task);
+            return View(new TaskJornal());
         }
 
         [HttpGet]
-        public IActionResult Access(int number)
+        public IActionResult Access(int id)
         {
-            ViewBag.Number = number;
-            return View();
+
+            return View(boardSchool.GetTask(id));
         }
 
-        [HttpPost]
-        public IActionResult Access()
-        {
-            return RedirectToAction("Access");
-        }
 
         [HttpPost]
         public IActionResult CreateTask(TaskJornal task)
         {
             if (ModelState.IsValid)
             {
-                db.TaskJornals.Add(task);
-                db.SaveChanges();
-                return RedirectToAction("Access",new {number= task.Id});
+                boardSchool.AddTask(task);
+                return RedirectToAction("Access",new {id= task.Id});
             }
 
             return View(task);
