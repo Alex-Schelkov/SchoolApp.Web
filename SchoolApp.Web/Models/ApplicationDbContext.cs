@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace SchoolApp.Web.Models
@@ -27,7 +25,7 @@ namespace SchoolApp.Web.Models
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            
+
         }
 
         public DbSet<State> States { get; set; }
@@ -40,15 +38,14 @@ namespace SchoolApp.Web.Models
         [Key]
         [Display(Name = "Номер")]
         public int Id { get; set; }
-        [Required]
-        [Display(Name = "Название")]
-        public string Name { get; set; }
 
-        public ICollection<TaskJornal> TaskJornals { get; set; }
-        public State()
-        {
-            TaskJornals = new List<TaskJornal>();
-        }
+        [Required]
+        [Display(Name = "Статус")]
+        public string Name { get; set; }
+        public List<TaskJornal> TaskJornals { get; set; }
+
+        
+        
     }
 
     public class TaskJornal
@@ -83,9 +80,10 @@ namespace SchoolApp.Web.Models
         public DateTime? WorkDate { get; set; }
 
         [Display(Name = "Статус")]
-        public int? StateId { get; set; } = 1;
 
-        public State State { get; set; }
+       public int StateId { get; set; }
+       
+        public State States { get; set; }
 
     }
 }
