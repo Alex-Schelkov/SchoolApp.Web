@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SchoolApp.Web.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
+using SchoolApp.Web.Base;
 
 namespace SchoolApp.Web
 {
@@ -26,14 +25,30 @@ namespace SchoolApp.Web
         {
             services.AddDbContext<ApplicationDbContext>(options =>
           options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+         
+           
+            
+            services.Configure<CookiePolicyOptions>(options =>
+             {
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
 
-          
-            services.AddMvc();
+            services.AddMvc().AddRazorPagesOptions(options =>
+                {
+                    options.Conventions.AuthorizePage("/Admin/login");
+
+                });
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+     
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+          
+
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();
@@ -44,7 +59,13 @@ namespace SchoolApp.Web
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseStaticFiles();
+  
+
+            app.UseStaticFiles(); 
+    
+
+            app.UseAuthentication();
+
 
             app.UseMvc(routes =>
             {

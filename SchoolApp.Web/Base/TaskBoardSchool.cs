@@ -90,7 +90,7 @@ namespace SchoolApp.Web.Base
 
         public IList<TaskJornal> GetAllTask()
         {
-            return context.TaskJornals.Include(c => c.States).ToList<TaskJornal>();
+            return context.TaskJornals.Include(c => c.States).OrderByDescending(x=>x.StartDate).ToList<TaskJornal>();
         }
 
         public TaskJornal GetTask(int id)

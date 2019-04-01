@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <SignAssembly>false</SignAssembly>
+    <UserSecretsId>6ab4f976-afd4-4c95-b9bb-411459c630d4</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

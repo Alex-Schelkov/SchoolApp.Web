@@ -27,23 +27,32 @@ namespace SchoolApp.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Access(int id)
+        public IActionResult Access(int? id)
         {
+           if(id==null)
+            {
+                return BadRequest();
+            }
 
-            return View(boardSchool.GetTask(id));
+           var board =  boardSchool.GetTask((int)id);
+
+            if (board==null)
+            {
+                return NotFound();
+            }
+           return View(board);
         }
 
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult CreateTask(TaskJornal task)
         {
-            if (ModelState.IsValid)
-            {
+
+            if (!ModelState.IsValid) return View(task);
+            
                 boardSchool.AddTask(task);
                 return RedirectToAction("Access",new {id= task.Id});
-            }
-
-            return View(task);
         }
 
 

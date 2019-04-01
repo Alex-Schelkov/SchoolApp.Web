@@ -1,10 +1,11 @@
 ﻿using SchoolApp.Web.Base;
 using Microsoft.AspNetCore.Mvc;
-using SchoolApp.Web.Attribute;
 using SchoolApp.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SchoolApp.Web.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
 
@@ -13,34 +14,54 @@ namespace SchoolApp.Web.Controllers
         public AdminController(ApplicationDbContext context)
         {
             boardSchool = new TaskBoardSchool(context);
+
         }
 
-        [CustomAuthorize]
         public IActionResult Index()
         {
             return View(boardSchool.GetRealTask());
         }
 
         [HttpGet]
-        public IActionResult Execution(int id)
+        public IActionResult Execution(int? id)
         {
-            return View(boardSchool.GetTask(id));
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            var board = boardSchool.GetTask((int)id);
+
+            if (board == null)
+            {
+                return NotFound();
+            }
+            return View(board);
         }
 
-
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Ready(int? id)
         {
-            if (id!=null)
-                boardSchool.InProcess((int)id);
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            boardSchool.InProcess((int)id);
             return RedirectToAction("Index");
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Comply(int? id)
         {
-            if (id != null)
-                boardSchool.Сompleted((int)id);
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            boardSchool.Сompleted((int)id);
             return RedirectToAction("Index");
         }
     }
