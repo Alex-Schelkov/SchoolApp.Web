@@ -44,5 +44,12 @@ namespace SchoolApp.Web.Controllers
                 return View(psw);
             }
         }
+
+        [HttpPost]
+        public IActionResult Out()
+        {
+            login.Out(HttpContext);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

@@ -1,0 +1,48 @@
+﻿@model SchoolApp.Web.Models.TaskJornal
+@{
+    ViewData["Title"] = "Заявка создана";
+}
+
+<h2>Ваша заявка №@Model.Id создана!</h2>
+
+<div>
+    <h4>Исполнение задачи</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cabinet)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cabinet)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fio)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Fio)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+    </dl>
+</div>
+<div>
+
+    <a asp-action="Index" class="btn btn-primary">Закрыть</a>
+</div>
+

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
+using MySql.Data.EntityFrameworkCore.DataAnnotations;
 
 namespace SchoolApp.Web.Models
 {
@@ -13,10 +14,12 @@ namespace SchoolApp.Web.Models
         {
             if (Database.EnsureCreated())
             {
-                Database.ExecuteSqlCommand("INSERT INTO `helpdeskschool`.`states` (`Id`,`Name`) VALUES(1,'Создано');");
-                Database.ExecuteSqlCommand("INSERT INTO `helpdeskschool`.`states` (`Id`,`Name`) VALUES(2,'В работе');");
-                Database.ExecuteSqlCommand("INSERT INTO `helpdeskschool`.`states` (`Id`,`Name`) VALUES(3,'Исполнено');");
-                Database.ExecuteSqlCommand("INSERT INTO `helpdeskschool`.`states` (`Id`,`Name`) VALUES(4,'Архив');");
+                //Database.ExecuteSqlCommand("ALTER TABLE `helpdeskschool`.`states` COLLATE = utf8;");
+              //  Database.ExecuteSqlCommand("ALTER TABLE `helpdeskschool`.`TaskJornals` COLLATE = utf8;");
+                Database.ExecuteSqlCommand("INSERT INTO `helpdeskschool`.`States` (`Id`,`Name`) VALUES(1,'Создано');");
+                Database.ExecuteSqlCommand("INSERT INTO `helpdeskschool`.`States` (`Id`,`Name`) VALUES(2,'В работе');");
+                Database.ExecuteSqlCommand("INSERT INTO `helpdeskschool`.`States` (`Id`,`Name`) VALUES(3,'Исполнено');");
+                Database.ExecuteSqlCommand("INSERT INTO `helpdeskschool`.`States` (`Id`,`Name`) VALUES(4,'Архив');");
             }
         }
 
@@ -24,6 +27,7 @@ namespace SchoolApp.Web.Models
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+       
             base.OnModelCreating(builder);
 
         }
@@ -32,7 +36,7 @@ namespace SchoolApp.Web.Models
         public DbSet<TaskJornal> TaskJornals { get; set; }
     }
 
-
+    [MySqlCharset("utf8")]
     public class State
     {
         [Key]
@@ -47,7 +51,7 @@ namespace SchoolApp.Web.Models
         
         
     }
-
+    [MySqlCharset("utf8")]
     public class TaskJornal
     {
 

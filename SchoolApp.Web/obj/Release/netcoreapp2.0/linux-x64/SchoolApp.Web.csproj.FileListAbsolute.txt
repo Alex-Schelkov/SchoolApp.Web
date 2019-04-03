@@ -1,0 +1,15 @@
+D:\my project\SchoolApp.Web\SchoolApp.Web\bin\Release\netcoreapp2.0\linux-x64\libhostpolicy.so
+D:\my project\SchoolApp.Web\SchoolApp.Web\bin\Release\netcoreapp2.0\linux-x64\libhostfxr.so
+D:\my project\SchoolApp.Web\SchoolApp.Web\bin\Release\netcoreapp2.0\linux-x64\SchoolApp.Web.Web
+D:\my project\SchoolApp.Web\SchoolApp.Web\bin\Release\netcoreapp2.0\linux-x64\SchoolApp.Web.deps.json
+D:\my project\SchoolApp.Web\SchoolApp.Web\bin\Release\netcoreapp2.0\linux-x64\SchoolApp.Web.runtimeconfig.json
+D:\my project\SchoolApp.Web\SchoolApp.Web\bin\Release\netcoreapp2.0\linux-x64\SchoolApp.Web.runtimeconfig.dev.json
+D:\my project\SchoolApp.Web\SchoolApp.Web\bin\Release\netcoreapp2.0\linux-x64\SchoolApp.Web.dll
+D:\my project\SchoolApp.Web\SchoolApp.Web\bin\Release\netcoreapp2.0\linux-x64\SchoolApp.Web.pdb
+D:\my project\SchoolApp.Web\SchoolApp.Web\obj\Release\netcoreapp2.0\linux-x64\SchoolApp.Web.csprojAssemblyReference.cache
+D:\my project\SchoolApp.Web\SchoolApp.Web\obj\Release\netcoreapp2.0\linux-x64\SchoolApp.Web.csproj.CoreCompileInputs.cache
+D:\my project\SchoolApp.Web\SchoolApp.Web\obj\Release\netcoreapp2.0\linux-x64\UserSecretsAssemblyInfo.cs
+D:\my project\SchoolApp.Web\SchoolApp.Web\obj\Release\netcoreapp2.0\linux-x64\SchoolApp.Web.AssemblyInfoInputs.cache
+D:\my project\SchoolApp.Web\SchoolApp.Web\obj\Release\netcoreapp2.0\linux-x64\SchoolApp.Web.AssemblyInfo.cs
+D:\my project\SchoolApp.Web\SchoolApp.Web\obj\Release\netcoreapp2.0\linux-x64\SchoolApp.Web.dll
+D:\my project\SchoolApp.Web\SchoolApp.Web\obj\Release\netcoreapp2.0\linux-x64\SchoolApp.Web.pdb

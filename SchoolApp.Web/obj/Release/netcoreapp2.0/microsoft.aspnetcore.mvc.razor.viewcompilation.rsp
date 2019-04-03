@@ -1,0 +1,15 @@
+D:\my project\SchoolApp.Web\SchoolApp.Web
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=SchoolApp.Web
+--content-root=D:\my project\SchoolApp.Web\SchoolApp.Web
+--file=D:\my project\SchoolApp.Web\SchoolApp.Web\Views\Account\Login.cshtml
+--file=D:\my project\SchoolApp.Web\SchoolApp.Web\Views\Admin\Execution.cshtml
+--file=D:\my project\SchoolApp.Web\SchoolApp.Web\Views\Admin\Index.cshtml
+--file=D:\my project\SchoolApp.Web\SchoolApp.Web\Views\Home\Access.cshtml
+--file=D:\my project\SchoolApp.Web\SchoolApp.Web\Views\Home\CreateTask.cshtml
+--file=D:\my project\SchoolApp.Web\SchoolApp.Web\Views\Home\Index.cshtml
+--file=D:\my project\SchoolApp.Web\SchoolApp.Web\Views\Shared\Error.cshtml
+--file=D:\my project\SchoolApp.Web\SchoolApp.Web\Views\Shared\_Layout.cshtml
+--file=D:\my project\SchoolApp.Web\SchoolApp.Web\Views\Shared\_ValidationScriptsPartial.cshtml
+--file=D:\my project\SchoolApp.Web\SchoolApp.Web\Views\_ViewImports.cshtml
+--file=D:\my project\SchoolApp.Web\SchoolApp.Web\Views\_ViewStart.cshtml

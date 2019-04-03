@@ -49,9 +49,13 @@ namespace SchoolApp.Web.Base
 
         }
 
-      
+        public void Out(HttpContext context)
+        {
+            context.SignOutAsync();
 
-      
+        }
+
+
 
     }
 }
