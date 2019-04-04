@@ -1,0 +1,38 @@
+﻿@model IEnumerable<SchoolApp.Web.Models.TaskJornal>
+@using SchoolApp.Web.Models
+@{
+    ViewData["Title"] = "Список заявок";
+}
+<p>
+    <a class="btn btn-danger" asp-action="CreateTask">Создать заявку</a>
+   
+</p>
+<div class="table-responsive">
+    <table class="table table-hover table-reflow">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                <th>@Html.DisplayNameFor(model => model.Cabinet)</th>
+                <th>@Html.DisplayNameFor(model => model.Fio)</th>
+                <th>@Html.DisplayNameFor(model => model.StartDate)</th>
+                <th>@Html.DisplayNameFor(model => model.States.Name)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr title="@Html.DisplayFor(modelItem => item.Text)">
+                    <th scope="row">@Html.DisplayFor(modelItem => item.Id)</th>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Cabinet)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Fio)</td>
+                    <td>@Html.DisplayFor(modelItem => item.StartDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.States.Name)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+
+

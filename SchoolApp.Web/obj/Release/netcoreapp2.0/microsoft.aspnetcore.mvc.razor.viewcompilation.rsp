@@ -13,3 +13,4 @@ D:\my project\SchoolApp.Web\SchoolApp.Web
 --file=D:\my project\SchoolApp.Web\SchoolApp.Web\Views\Shared\_ValidationScriptsPartial.cshtml
 --file=D:\my project\SchoolApp.Web\SchoolApp.Web\Views\_ViewImports.cshtml
 --file=D:\my project\SchoolApp.Web\SchoolApp.Web\Views\_ViewStart.cshtml
+--key-file=SchoolApp.Web.pfx

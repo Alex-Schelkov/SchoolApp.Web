@@ -15,7 +15,7 @@
     "allowUnsafe": false,
     "warningsAsErrors": false,
     "optimize": false,
-    "keyFile": "",
+    "keyFile": "SchoolApp.Web.pfx",
     "emitEntryPoint": true,
     "xmlDoc": false,
     "debugType": "portable"

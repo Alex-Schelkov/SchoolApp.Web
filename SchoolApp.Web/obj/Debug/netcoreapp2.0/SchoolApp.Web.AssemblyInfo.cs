@@ -11,14 +11,15 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("SchoolApp.Web")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Щелков А.И.")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("Щелков Алексей Иванович")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("Журнал системного администратора")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("SchoolApp.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SchoolApp.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
-[assembly: System.Resources.NeutralResourcesLanguageAttribute("ru-RU")]
 
 // Создано классом WriteCodeFragment MSBuild.
 
